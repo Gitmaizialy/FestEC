@@ -1,8 +1,11 @@
 package com.maizi.festec;
 
 import android.app.Application;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
+import com.maizi.example.app.ConfigType;
 import com.maizi.example.app.Latte;
 import com.maizi.example.icon.FontEcModule;
 

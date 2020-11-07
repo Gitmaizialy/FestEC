@@ -2,6 +2,7 @@ package com.maizi.example.activities;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.FrameLayout;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.ContentFrameLayout;
@@ -26,7 +27,9 @@ public abstract class ProxyActivity extends SupportActivity {
     }
 
     private void initContainer(@Nullable Bundle savedInstanceState) {
-        @SuppressLint("RestrictedApi") final ContentFrameLayout container = new ContentFrameLayout(this);
+        //todo ContentFragmentlayout和FragmentLayout的区别、共同之处 未解决
+        final FrameLayout container = new FrameLayout(this);
+
         container.setId(R.id.delegate_container);
         setContentView(container);
         if (savedInstanceState == null) {

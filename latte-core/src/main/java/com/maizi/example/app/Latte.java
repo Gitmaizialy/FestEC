@@ -17,7 +17,7 @@ public final class Latte {
     }
 
     // 获取关于配置的hasmap
-    private static HashMap<String, Object> getConfigurations() {
+    public static HashMap<String, Object> getConfigurations() {
         return Configurator.getInstance().getLatteConfigs();
     }
 
@@ -25,4 +25,5 @@ public final class Latte {
     public static Context getApplication() {
         return (Context) getConfigurations().get(ConfigType.APPLICATION_CONTEXT.name());
     }
+
 }
