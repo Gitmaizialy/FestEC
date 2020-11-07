@@ -1,9 +1,12 @@
 package com.maizi.example.net;
 
+import android.content.Context;
+
 import com.maizi.example.net.callback.IError;
 import com.maizi.example.net.callback.IFailure;
 import com.maizi.example.net.callback.IRequest;
 import com.maizi.example.net.callback.ISuccess;
+import com.maizi.example.ui.LoaderStyle;
 
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -17,13 +20,15 @@ import okhttp3.RequestBody;
  * description:
  */
 public class RestClientBuilder {
-    private String mUrl;
+    private String mUrl = null;
     private static Map<String, Object> PARAMS = RestCreator.getParams();
-    private IRequest mIRequest;
-    private ISuccess mISuccess;
-    private IFailure mIFailure;
-    private IError mIError;
-    private RequestBody mBody;
+    private IRequest mIRequest = null;
+    private ISuccess mISuccess = null;
+    private IFailure mIFailure = null;
+    private IError mIError = null;
+    private RequestBody mBody = null;
+    private LoaderStyle mLoaderStyle = null;
+    private Context mContext = null;
 
     public RestClientBuilder() {
     }
@@ -68,7 +73,21 @@ public class RestClientBuilder {
         return this;
     }
 
+    //自定义Loader
+    public final RestClientBuilder loader(LoaderStyle loaderStyle, Context context) {
+        this.mLoaderStyle = loaderStyle;
+        this.mContext = context;
+        return this;
+    }
+
+    // 默认Loader
+    public final RestClientBuilder loader(Context context) {
+        this.mLoaderStyle = LoaderStyle.BallClipRotatePulseIndicator;
+        this.mContext = context;
+        return this;
+    }
+
     public final RestClient build() {
-        return new RestClient(mUrl, PARAMS, mIRequest, mISuccess, mIFailure, mIError, mBody);
+        return new RestClient(mUrl, PARAMS, mIRequest, mISuccess, mIFailure, mIError, mBody, mLoaderStyle, mContext);
     }
 }

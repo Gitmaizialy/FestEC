@@ -1,9 +1,13 @@
-package com.maizi.example.net;
+package com.maizi.example.net.callback;
+
+import android.os.Handler;
 
 import com.maizi.example.net.callback.IError;
 import com.maizi.example.net.callback.IFailure;
 import com.maizi.example.net.callback.IRequest;
 import com.maizi.example.net.callback.ISuccess;
+import com.maizi.example.ui.LatteLoader;
+import com.maizi.example.ui.LoaderStyle;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,15 +23,19 @@ public class RequestCallbacks implements Callback<String> {
     private final ISuccess SUCCESS;
     private final IFailure FAILURE;
     private final IError ERROR;
+    private final LoaderStyle LOADER_STYLE;
+    private static final Handler HANDLER = new Handler(); // 为loader延迟关闭而设定
 
     public RequestCallbacks(IRequest request,
                             ISuccess success,
                             IFailure failure,
-                            IError error) {
+                            IError error,
+                            LoaderStyle loaderStyle) {
         this.REQUEST = request;
         this.SUCCESS = success;
         this.FAILURE = failure;
         this.ERROR = error;
+        this.LOADER_STYLE = loaderStyle;
     }
 
     @Override
@@ -43,6 +51,7 @@ public class RequestCallbacks implements Callback<String> {
                 ERROR.onError(response.code(), response.message());
             }
         }
+        stopLoading();
     }
 
     @Override
@@ -52,6 +61,18 @@ public class RequestCallbacks implements Callback<String> {
         }
         if (REQUEST != null) {
             REQUEST.onRequestEnd();
+        }
+        stopLoading();
+    }
+
+    private void stopLoading() {
+        if (LOADER_STYLE != null) {
+            HANDLER.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    LatteLoader.stopLoading();
+                }
+            }, 1000);
         }
     }
 }

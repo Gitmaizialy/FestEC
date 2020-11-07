@@ -33,10 +33,23 @@ public class ExampleDelegate extends LatteDelegate {
     private void testRestClient() {
         RestClient.builder()
                 .url("https://github.com/JakeWharton/butterknife/")
+                .loader(getContext())
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String reponse) {
                         Toast.makeText(getContext(), reponse, Toast.LENGTH_LONG).show();
+                    }
+                })
+                .failure(new IFailure() {
+                    @Override
+                    public void onFailure() {
+
+                    }
+                })
+                .error(new IError() {
+                    @Override
+                    public void onError(int code, String msg) {
+
                     }
                 })
                 .build()
