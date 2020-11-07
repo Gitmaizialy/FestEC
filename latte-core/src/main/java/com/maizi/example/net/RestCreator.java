@@ -38,7 +38,7 @@ public class RestCreator {
 
     private static final class RetrofitHolder {
         //todo BASE_URL 报空值！！！
-        //todo 已经解决：
+        //todo 已经解决：get传值为：ConfigType.API_HOST.name(),而非ConfigType.API_HOST
         private static final String BASE_URL = (String) Latte.getConfigurations().get(ConfigType.API_HOST.name());
         private static final Retrofit RETROFIT_CLIENT = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
