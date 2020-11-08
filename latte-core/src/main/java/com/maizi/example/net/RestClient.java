@@ -7,6 +7,7 @@ import com.maizi.example.net.callback.IFailure;
 import com.maizi.example.net.callback.IRequest;
 import com.maizi.example.net.callback.ISuccess;
 import com.maizi.example.net.callback.RequestCallbacks;
+import com.maizi.example.net.download.DownloadHandler;
 import com.maizi.example.ui.LatteLoader;
 import com.maizi.example.ui.LoaderStyle;
 
@@ -29,6 +30,9 @@ public class RestClient {
     private final String URL;
     private static final WeakHashMap<String, Object> PARAMS = RestCreator.getParams();
     private final IRequest REQUEST;
+    private final String DOWNLOAD_DIR;
+    private final String EXTENSION;
+    private final String NAME;
     private final ISuccess SUCCESS;
     private final IFailure FAILURE;
     private final IError ERROR;
@@ -39,6 +43,9 @@ public class RestClient {
 
     public RestClient(String url,
                       Map<String, Object> params,
+                      String downloadDir,
+                      String extension,
+                      String name,
                       IRequest request,
                       ISuccess success,
                       IFailure failure,
@@ -49,6 +56,9 @@ public class RestClient {
                       Context context) {
         this.URL = url;
         PARAMS.putAll(params);
+        this.DOWNLOAD_DIR = downloadDir;
+        this.EXTENSION = extension;
+        this.NAME = name;
         this.REQUEST = request;
         this.SUCCESS = success;
         this.FAILURE = failure;
@@ -92,7 +102,6 @@ public class RestClient {
                 call = service.putRaw(URL, BODY);
                 break;
             case UPLOAD:
-
                 // create方法过期，这里官方给定的传值方法
                 // final RequestBody requestBody = RequestBody.Companion.create(FILE,MediaType.Companion.parse(MultipartBody.FORM.toString()));
                 final RequestBody requestBody = RequestBody.create(MediaType.parse(MultipartBody.FORM.toString()), FILE);
@@ -150,5 +159,14 @@ public class RestClient {
 
     public final void delete() {
         request(HttpMethod.DELETE);
+    }
+
+    public final void upLoad() {
+        request(HttpMethod.UPLOAD);
+    }
+
+    public final void downLoad() {
+        new DownloadHandler(URL,REQUEST,DOWNLOAD_DIR,EXTENSION,NAME,SUCCESS,FAILURE,ERROR)
+                .handlerDownload();
     }
 }

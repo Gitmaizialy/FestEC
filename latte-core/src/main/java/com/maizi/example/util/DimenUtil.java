@@ -16,7 +16,7 @@ public class DimenUtil {
      * @return 屏幕宽
      */
     public static int getScareenWidth() {
-        final Resources resources = Latte.getApplication().getResources();
+        final Resources resources = Latte.getApplicationContext().getResources();
         final DisplayMetrics dm = resources.getDisplayMetrics();
         return dm.widthPixels;
     }
@@ -25,7 +25,7 @@ public class DimenUtil {
      * @return 屏幕高
      */
     public static int getScareenHeight() {
-        final Resources resources = Latte.getApplication().getResources();
+        final Resources resources = Latte.getApplicationContext().getResources();
         final DisplayMetrics dm = resources.getDisplayMetrics();
         return dm.heightPixels;
     }
