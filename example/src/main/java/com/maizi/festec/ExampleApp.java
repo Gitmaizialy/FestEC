@@ -1,13 +1,11 @@
 package com.maizi.festec;
 
 import android.app.Application;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
-import com.maizi.example.app.ConfigType;
 import com.maizi.example.app.Latte;
 import com.maizi.example.icon.FontEcModule;
+import com.maizi.example.net.interceptors.DebugInterceptor;
 
 /**
  * author: Maizi
@@ -25,6 +23,7 @@ public class ExampleApp extends Application {
                 .withIcon(new FontAwesomeModule()) // 图标
                 .withIcon(new FontEcModule()) // 字体
                 .withApiHost("http://127.0.0.1/") // 域名
+                .withInterceptor(new DebugInterceptor("index", R.raw.test))
                 .configure();
     }
 }
