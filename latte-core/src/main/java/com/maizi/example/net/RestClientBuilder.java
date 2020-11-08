@@ -8,6 +8,7 @@ import com.maizi.example.net.callback.IRequest;
 import com.maizi.example.net.callback.ISuccess;
 import com.maizi.example.ui.LoaderStyle;
 
+import java.io.File;
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -29,6 +30,7 @@ public class RestClientBuilder {
     private RequestBody mBody = null;
     private LoaderStyle mLoaderStyle = null;
     private Context mContext = null;
+    private File mFile = null;
 
     public RestClientBuilder() {
     }
@@ -80,14 +82,26 @@ public class RestClientBuilder {
         return this;
     }
 
-    // 默认Loader
+    //默认Loader
     public final RestClientBuilder loader(Context context) {
         this.mLoaderStyle = LoaderStyle.BallClipRotatePulseIndicator;
         this.mContext = context;
         return this;
     }
 
+    //重载1
+    public final RestClientBuilder file(File file) {
+        this.mFile = file;
+        return this;
+    }
+
+    //重载2
+    public final RestClientBuilder file(String file) {
+        this.mFile = new File(file);
+        return this;
+    }
+
     public final RestClient build() {
-        return new RestClient(mUrl, PARAMS, mIRequest, mISuccess, mIFailure, mIError, mBody, mLoaderStyle, mContext);
+        return new RestClient(mUrl, PARAMS, mIRequest, mISuccess, mIFailure, mIError, mBody, mLoaderStyle, mFile, mContext);
     }
 }

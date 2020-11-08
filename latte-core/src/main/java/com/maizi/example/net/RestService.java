@@ -34,6 +34,7 @@ public interface RestService {
     @POST
     Call<String> post(@Url String url, @FieldMap Map<String, Object> params);
 
+    //网络框架优化
     @POST
     Call<String> postRaw(@Url String url, @Body RequestBody body);
 
@@ -41,6 +42,7 @@ public interface RestService {
     @PUT
     Call<String> put(@Url String url, @FieldMap Map<String, Object> params);
 
+    //网络框架优化
     @PUT
     Call<String> putRaw(@Url String url, @Body RequestBody body);
 
