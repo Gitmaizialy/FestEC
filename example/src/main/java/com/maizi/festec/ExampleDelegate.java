@@ -1,17 +1,16 @@
 package com.maizi.festec;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.maizi.example.delegates.LatteDelegate;
-import com.maizi.example.net.RestClient;
-import com.maizi.example.net.callback.IError;
-import com.maizi.example.net.callback.IFailure;
-import com.maizi.example.net.callback.ISuccess;
+import com.maizi.ec.delegates.LatteDelegate;
+import com.maizi.ec.net.RestClient;
+import com.maizi.ec.net.callback.IError;
+import com.maizi.ec.net.callback.IFailure;
+import com.maizi.ec.net.callback.ISuccess;
 
 /**
  * author: Maizi

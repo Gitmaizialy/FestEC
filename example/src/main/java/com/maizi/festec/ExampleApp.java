@@ -3,9 +3,9 @@ package com.maizi.festec;
 import android.app.Application;
 
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
-import com.maizi.example.app.Latte;
-import com.maizi.example.icon.FontEcModule;
-import com.maizi.example.net.interceptors.DebugInterceptor;
+import com.maizi.ec.app.Latte;
+import com.maizi.ec.icon.FontEcModule;
+import com.maizi.ec.net.interceptors.DebugInterceptor;
 
 /**
  * author: Maizi

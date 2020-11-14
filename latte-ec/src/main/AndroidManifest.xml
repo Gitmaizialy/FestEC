@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.maizi.example">
+    package="com.maizi.ec">
 
     <application
         android:allowBackup="true"

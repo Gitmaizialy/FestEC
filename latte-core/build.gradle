@@ -46,7 +46,7 @@ dependencies {
     compile 'me.yokeyword:fragmentation-swipeback:1.2.3'
 
     // butterknife依赖 注解
-    implementation 'com.jakewharton:butterknife:10.2.3'
+    compile 'com.jakewharton:butterknife:10.2.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
 
     // 网络请求依赖
@@ -57,5 +57,14 @@ dependencies {
 
     //Loader依赖
     implementation 'com.wang.avi:library:2.1.3'
+
+    //Banner
+    implementation 'com.bigkoo:convenientbanner:2.1.5'
+    //noinspection GradleDynamicVersion
+    implementation 'androidx.recyclerview:recyclerview:1.0.0+'
+    implementation 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:2.0.24'
+
+    //fastJson
+    compile 'com.alibaba:fastjson:1.2.73'
 
 }
