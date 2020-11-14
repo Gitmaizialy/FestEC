@@ -8,8 +8,8 @@ import com.maizi.ec.net.callback.IRequest;
 import com.maizi.ec.net.callback.ISuccess;
 import com.maizi.ec.net.callback.RequestCallbacks;
 import com.maizi.ec.net.download.DownloadHandler;
-import com.maizi.ec.ui.LatteLoader;
-import com.maizi.ec.ui.LoaderStyle;
+import com.maizi.ec.ui.loader.LatteLoader;
+import com.maizi.ec.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;

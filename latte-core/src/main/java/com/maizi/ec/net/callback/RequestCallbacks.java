@@ -2,8 +2,8 @@ package com.maizi.ec.net.callback;
 
 import android.os.Handler;
 
-import com.maizi.ec.ui.LatteLoader;
-import com.maizi.ec.ui.LoaderStyle;
+import com.maizi.ec.ui.loader.LatteLoader;
+import com.maizi.ec.ui.loader.LoaderStyle;
 
 import retrofit2.Call;
 import retrofit2.Callback;

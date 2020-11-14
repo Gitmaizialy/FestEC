@@ -1,4 +1,4 @@
-package com.maizi.ec.ui;
+package com.maizi.ec.ui.loader;
 
 import android.content.Context;
 

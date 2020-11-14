@@ -6,7 +6,7 @@ import com.maizi.ec.net.callback.IError;
 import com.maizi.ec.net.callback.IFailure;
 import com.maizi.ec.net.callback.IRequest;
 import com.maizi.ec.net.callback.ISuccess;
-import com.maizi.ec.ui.LoaderStyle;
+import com.maizi.ec.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;

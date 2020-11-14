@@ -59,10 +59,8 @@ dependencies {
     implementation 'com.wang.avi:library:2.1.3'
 
     //Banner
-    implementation 'com.bigkoo:convenientbanner:2.1.5'
-    //noinspection GradleDynamicVersion
-    implementation 'androidx.recyclerview:recyclerview:1.0.0+'
-    implementation 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:2.0.24'
+    compile 'com.bigkoo:convenientbanner:2.0.5'
+    compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
 
     //fastJson
     compile 'com.alibaba:fastjson:1.2.73'
